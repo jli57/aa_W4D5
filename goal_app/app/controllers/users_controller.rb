@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def create
@@ -17,9 +18,6 @@ class UsersController < ApplicationController
       flash.now[:errors] = @user.errors.full_messages
       render :new, status: 422
     end
-  end
-
-  def edit
   end
 
   private

@@ -26,14 +26,6 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe "GET #edit" do
-    it "returns http success" do
-      get :edit, params: { id: FactoryBot.create(:user) }
-      expect(response).to have_http_status(:success)
-      expect(response).to render_template(:edit)
-    end
-  end
-
   describe "GET #create" do
     context "with valid params" do
       subject(:user) { User.find_by(username: 'testtest') }
