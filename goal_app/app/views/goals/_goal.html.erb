@@ -1,0 +1,16 @@
+<% if !goal.private || current_user == goal.user %>
+  <tr>
+    <td><%= goal.title %></td>
+    <td><%= goal.details %></td>
+    <td><%= goal.private %></td>
+    <td><%= goal.completed %></td>
+    <td><%= goal.user.username %></td>
+    <td><%= link_to 'Show', goal %></td>
+    <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+    <td>
+      <%= link_to(
+        'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' }
+      ) %>
+    </td>
+  </tr>
+<% end %>

@@ -1,2 +1,6 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.username %></h1>
+
+<h2>Goals</h2>
+<%= render 'goals/goal_table', goals: @user.goals %>
+
+<%= link_to "New Goal", new_goal_path %>

@@ -1,0 +1,6 @@
+<h1>Sign In</h1>
+
+<form action="<%= session_url %>" method="post">
+  <%= render 'users/form', user: @user %>
+  <input type="submit" value="Sign In">
+</form>
