@@ -27,3 +27,16 @@
 
 <%= link_to 'Edit', edit_goal_path(@goal) %> |
 <%= link_to 'Back', @goal.user %>
+
+<h2>Comments</h2>
+<ul><%= render @goal.comments %></ul>
+
+<h2>Add Comment</h2>
+<form action="<%= comments_url %>" method="post">
+  <%= auth_token %>
+  <%= errors %>
+  <input type="hidden" name="comment[commentable_id]" value="<%= @goal.id %>">
+  <input type="hidden" name="comment[commentable_type]" value="<%= @goal.class.name %>">
+  <textarea name="comment[body]"></textarea>
+  <input type="submit" value="Add Comment">
+</form>

@@ -1,5 +1,18 @@
 <h1><%= @user.username %></h1>
 
+<h2>Comments</h2>
+<ul><%= render @user.comments %></ul>
+
+<h2>Add Comment</h2>
+<form action="<%= comments_url %>" method="post">
+  <%= auth_token %>
+  <%= errors %>
+  <input type="hidden" name="comment[commentable_id]" value="<%= @user.id %>">
+  <input type="hidden" name="comment[commentable_type]" value="<%= @user.class.name %>">
+  <textarea name="comment[body]"></textarea>
+  <input type="submit" value="Add Comment">
+</form>
+
 <h2>Goals</h2>
 <%= render 'goals/goal_table', goals: @user.goals %>
 
